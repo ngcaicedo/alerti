@@ -1,0 +1,199 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/fonts' as *;
+
+.custom-listbox-container {
+  display: flex;
+  flex-direction: column;
+  width: 322px;
+  
+  .listbox-label {
+    @include apply-typography($listbox-label);
+    color: $listbox-text;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.custom-listbox {
+  width: 100%;
+  
+  .mat-mdc-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-mdc-form-field {
+    height: 60px;
+    line-height: 60px;
+  }
+  
+  .mat-mdc-form-field-infix {
+    min-height: 52px; 
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-mdc-form-field-flex {
+    padding-left: 18px;
+    padding-right: 12px;
+    align-items: center;
+    min-height: 60px;
+    background-color: $listbox-background;
+    border-radius: 8px;
+  }
+  
+  .mat-mdc-form-field-outline {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: $listbox-border;
+      border-width: 1px;
+    }
+    
+    .mdc-notched-outline__leading {
+      border-radius: 8px 0 0 8px;
+      border-right: none;
+    }
+    
+    .mdc-notched-outline__trailing {
+      border-radius: 0 8px 8px 0;
+      border-left: none;
+    }
+    
+    .mdc-notched-outline__notch {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+  }
+  
+  .mat-mdc-select {
+    @include apply-typography($listbox-label);
+    color: $listbox-text;
+    line-height: 60px;
+    
+    .mat-mdc-select-arrow {
+      color: $listbox-border;
+      margin-left: 8px;
+    }
+  }
+  
+  .mat-mdc-select-placeholder {
+    @include apply-typography($listbox-label);
+    color: rgba($listbox-text, 0.6);
+  }
+  
+  &.mat-mdc-form-field-focused {
+    .mat-mdc-form-field-outline {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: $m3-sys-light-primary;
+        border-width: 2px;
+      }
+    }
+  }
+  
+  &:hover:not(.mat-mdc-form-field-focused):not(.mat-mdc-form-field-disabled) {
+    .mat-mdc-form-field-outline {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: $m3-sys-light-primary;
+      }
+    }
+  }
+  
+  &.mat-mdc-form-field-disabled {
+    .mat-mdc-form-field-flex {
+      background-color: rgba($listbox-background, 0.6);
+    }
+    
+    .mat-mdc-select {
+      color: rgba($listbox-text, 0.38);
+    }
+  }
+}
+
+:host {
+  .mat-mdc-form-field {
+    --mdc-outlined-text-field-outline-color: #{$listbox-border};
+    --mdc-outlined-text-field-focus-outline-color: #{$m3-sys-light-primary};
+    --mdc-outlined-text-field-hover-outline-color: #{$m3-sys-light-primary};
+    --mdc-outlined-text-field-container-color: #{$listbox-background};
+    --mat-form-field-container-text-color: #{$listbox-text};
+    --mat-select-enabled-trigger-text-color: #{$listbox-text};
+    --mat-select-placeholder-text-color: #{rgba($listbox-text, 0.6)};
+    --mat-select-enabled-arrow-color: #{$listbox-border};
+  }
+}
+
+::ng-deep .mat-mdc-select-panel {
+  background-color: $listbox-background !important;
+  border-radius: 8px !important;
+  box-shadow: 0px 4px 14px 0px $listbox-shadow !important;
+  border: 1px solid $listbox-border !important;
+  max-height: 256px;
+  
+  .mat-mdc-option {
+    @include apply-typography($listbox-option);
+    color: $listbox-option-text;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 16px;
+    
+    &:hover {
+      background-color: $listbox-option-hover !important;
+    }
+    
+    &.mat-mdc-option-active {
+      background-color: $listbox-option-hover !important;
+    }
+    
+    &.mdc-list-item--selected {
+      background-color: rgba($m3-sys-light-primary, 0.12) !important;
+      color: $m3-sys-light-primary !important;
+    }
+    
+    .mdc-list-item__primary-text {
+      @include apply-typography($listbox-option);
+      color: inherit;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-listbox-container {
+    width: 100%;
+    
+    .custom-listbox {
+      .mat-mdc-form-field-flex {
+        padding-left: 16px;
+        padding-right: 12px;
+      }
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .custom-listbox {
+    .mat-mdc-form-field-outline {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-width: 2px;
+      }
+    }
+    
+    &.mat-mdc-form-field-focused {
+      .mat-mdc-form-field-outline {
+        .mdc-notched-outline__leading,
+        .mdc-notched-outline__notch,
+        .mdc-notched-outline__trailing {
+          border-width: 3px;
+        }
+      }
+    }
+  }
+}

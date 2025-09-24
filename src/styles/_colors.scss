@@ -28,3 +28,10 @@ $textfield-label-focus: $m3-sys-light-primary;
 $login-container-background: #FAFCFE;
 $login-container-border: #CAC4D0;
 $login-register-link: #858485;
+
+$listbox-background: #FEF7FF;
+$listbox-border: $m3-sys-light-primary-container;
+$listbox-text: $m3-sys-light-primary-container;
+$listbox-option-text: #333333;
+$listbox-option-hover: rgba($m3-sys-light-primary-container, 0.08);
+$listbox-shadow: rgba(0, 0, 0, 0.1);
