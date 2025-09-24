@@ -5,36 +5,38 @@
     height="140px">
   </app-custom-card-header>
   
-  <h2 class="login-title">Ingrese a la aplicación</h2>
-  
-  <div class="login-form">
-    
-    <app-custom-text-field
-      label="Usuario"
-      [(value)]="usuario"
-      (inputChange)="onInputChange('Usuario', $event)">
-    </app-custom-text-field>
-    
-    <app-custom-text-field
-      label="Contraseña"
-      [(value)]="password"
-      type="password"
-      (inputChange)="onInputChange('Contraseña', $event)">
-    </app-custom-text-field>
-    
-    <app-custom-button
-      text="Entrar"
-      variant="primary"
-      size="medium"
-      class="login-button"
-      (onClick)="onLogin()">
-    </app-custom-button>
-    
-  </div>
-  
-  <div class="login-footer">
-    <p class="no-account-text">¿Todavía no tienes cuenta?</p>
-    <p class="register-link" (click)="onRegister()">Registrate</p>
-  </div>
+  <div class="main-content">  
+      <h2 class="login-title">Ingrese a la aplicación</h2>
+      
+      <div class="login-form">
+        <app-custom-text-field
+          label="Usuario"
+          [(value)]="usuario"
+          (inputChange)="onInputChange('Usuario', $event)">
+        </app-custom-text-field>
+        
+        <app-custom-text-field
+          label="Contraseña"
+          [(value)]="password"
+          type="password"
+          (inputChange)="onInputChange('Contraseña', $event)">
+        </app-custom-text-field>
+        
+        <app-custom-button
+          text="Entrar"
+          variant="primary"
+          size="medium"
+          class="login-button"
+          (onClick)="onLogin()">
+        </app-custom-button>
+        
+      </div>
+      
+    </div>
+
+    <div class="login-footer">
+      <p class="no-account-text">¿Todavía no tienes cuenta?</p>
+      <p class="register-link" (click)="onRegister()">Registrate</p>
+    </div>
   
 </div>
