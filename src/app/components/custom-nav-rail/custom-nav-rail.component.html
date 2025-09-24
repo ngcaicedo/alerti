@@ -1,0 +1,63 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav 
+    #sidenav
+    [opened]="opened"
+    [mode]="mode"
+    (openedChange)="onOpenedChange($event)"
+    class="nav-rail">
+    
+    <div class="top-section">
+      <div class="nav-item" 
+           *ngFor="let item of topItems"
+           [class.selected]="isSelected(item.id)"
+           (click)="onItemClick(item.id)">
+        
+        <div class="icon-container">
+          <div class="state-layer">
+            <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+          </div>
+        </div>
+        
+        <span class="label-text">{{ item.label }}</span>
+      </div>
+      
+      <mat-divider class="nav-divider"></mat-divider>
+    </div>
+
+    <div class="middle-section">
+      <div class="nav-item" 
+           *ngFor="let item of middleItems"
+           [class.selected]="isSelected(item.id)"
+           (click)="onItemClick(item.id)">
+        
+        <div class="icon-container">
+          <div class="state-layer">
+            <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+          </div>
+        </div>
+        
+        <span class="label-text">{{ item.label }}</span>
+      </div>
+    </div>
+
+    <div class="bottom-section">
+      <div class="nav-item logout-item"
+           (click)="onItemClick(bottomItem.id)">
+        
+        <div class="icon-container">
+          <div class="state-layer">
+            <mat-icon class="nav-icon">{{ bottomItem.icon }}</mat-icon>
+          </div>
+        </div>
+        
+        <span class="label-text">{{ bottomItem.label }}</span>
+      </div>
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="main-content">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

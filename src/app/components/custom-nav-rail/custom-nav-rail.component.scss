@@ -1,0 +1,308 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/fonts' as *;
+
+.sidenav-container {
+  height: 100vh;
+    
+  .mat-drawer-side {
+    border: none !important;
+  }
+  
+  .mat-drawer-container {
+    background-color: transparent !important;
+  }
+}
+
+.main-content {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.nav-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 72px;
+  height: 613px;
+  background-color: transparent !important;
+  position: relative;
+  border: none !important;
+  
+  &.mat-drawer {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    top: 8px;
+    left: 13.5px;
+    
+    .nav-divider {
+      width: 45px;
+      height: 1px;
+      border-color: $m3-sys-light-on-surface;
+      margin-top: 16px;
+      
+      &.mat-divider {
+        border-top-color: rgba($m3-sys-light-on-surface, 0.12) !important;
+        border-top-style: solid !important;
+        border-top-width: 1px !important;
+      }
+    }
+  }
+  
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 96px;
+    position: absolute;
+    top: 124px;
+    left: -12px;
+  }
+  
+  .bottom-section {
+    position: absolute;
+    bottom: 131px;
+    left: 0;
+    width: 72px;
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 0;
+    width: 96px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    border-radius: 16px;
+    
+    .top-section & {
+      width: 96px;
+      position: relative;
+      left: -25.5px;
+      top: 22px;
+    }
+    
+    .bottom-section & {
+      width: 72px;
+    }
+    
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      height: 32px;
+      border-radius: 16px;
+      transition: all 0.2s ease;
+      
+      .state-layer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 56px;
+        height: 32px;
+        padding: 4px 0;
+        gap: 10px;
+        border-radius: 16px;
+        transition: all 0.2s ease;
+        
+        .nav-icon {
+          width: 24px;
+          height: 24px;
+          font-size: 24px;
+          color: $m3-sys-light-on-surface;
+          transition: color 0.2s ease;
+        }
+      }
+    }
+    
+    .label-text {
+      @include apply-typography($m3-body-small);
+      color: $m3-sys-light-on-surface-variant;
+      text-align: center;
+      width: 100%;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.05em;
+      transition: color 0.2s ease;
+    }
+    
+    &:hover:not(.selected) {
+      .icon-container {
+        .state-layer {
+          background-color: rgba($m3-sys-light-on-surface, $state-hover-opacity);
+        }
+      }
+      
+      .label-text {
+        color: $m3-sys-light-on-surface;
+      }
+    }
+    
+    &:focus {
+      outline: 2px solid $m3-sys-light-primary;
+      outline-offset: 2px;
+      
+      .icon-container {
+        .state-layer {
+          background-color: rgba($m3-sys-light-primary, $state-focus-opacity);
+        }
+      }
+    }
+    
+    &.selected {
+      .icon-container {
+        .state-layer {
+          background-color: $m3-sys-light-primary-container;
+          
+          .nav-icon {
+            color: $m3-sys-light-on-primary-container;
+          }
+        }
+      }
+      
+      .label-text {
+        color: $m3-sys-light-on-surface;
+        font-weight: 600;
+      }
+    }
+    
+    &:active {
+      .icon-container {
+        .state-layer {
+          background-color: rgba($m3-sys-light-on-surface, $state-pressed-opacity);
+        }
+      }
+    }
+    
+    &.logout-item {
+      &:hover {
+        .icon-container {
+          .state-layer {
+            background-color: rgba(#B3261E, $state-hover-opacity);
+          }
+        }
+        
+        .label-text {
+          color: #B3261E;
+        }
+        
+        .nav-icon {
+          color: #B3261E;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-rail {
+    width: 60px;
+    
+    .nav-item {
+      .label-text {
+        font-size: 10px;
+      }
+      
+      .icon-container {
+        width: 48px;
+        height: 28px;
+        
+        .state-layer {
+          width: 48px;
+          height: 28px;
+          
+          .nav-icon {
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    
+    .middle-section {
+      width: 80px;
+      left: -10px;
+    }
+    
+    .top-section {
+      left: 10px;
+      
+      .nav-item {
+        width: 80px;
+        left: -20px;
+      }
+    }
+  }
+}
+
+@media (prefers-contrast: high) {
+  .nav-rail {
+    .nav-item {
+      border: 1px solid transparent;
+      
+      &:focus {
+        border-color: $m3-sys-light-primary;
+        outline: none;
+      }
+      
+      &.selected {
+        border-color: $m3-sys-light-primary;
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    .mat-drawer-container {
+      background-color: transparent !important;
+      color: inherit !important;
+    }
+    
+    .mat-drawer {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      width: 72px !important;
+    }
+    
+    .mat-drawer-side {
+      border-right: none !important;
+    }
+    
+    .mat-drawer-content {
+      margin-left: 0 !important;
+    }
+    
+    &.mat-drawer-container-has-open {
+      .mat-drawer-content {
+        margin-left: 0 !important;
+      }
+    }
+    
+    .mat-drawer {
+      transition: transform 280ms cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+    
+    .mat-drawer-backdrop {
+      background-color: rgba(0, 0, 0, 0.6) !important;
+    }
+  }
+}

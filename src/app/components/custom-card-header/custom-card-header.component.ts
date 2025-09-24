@@ -13,4 +13,6 @@ export class CustomCardHeaderComponent {
   @Input() height: string = '140px';
   @Input() titleStyle: 'default' | 'small' = 'default';
   @Input() showBackgroundPattern: boolean = true;
+  @Input() variant: 'header' | 'content' = 'header';
+  @Input() width: string = '100%';
 }
