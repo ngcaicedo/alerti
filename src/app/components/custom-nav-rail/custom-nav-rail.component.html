@@ -12,7 +12,7 @@
          (click)="onItemClick(item.id)">
       
       <div class="icon-container">
-        <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+        <img [src]="item.svgPath" [alt]="item.label" class="nav-icon">
       </div>
       <span class="label-text">{{ item.label }}</span>
     </div>
@@ -26,7 +26,7 @@
            (click)="onItemClick(item.id)">
         
         <div class="icon-container">
-          <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+          <img [src]="item.svgPath" [alt]="item.label" class="nav-icon">
         </div>
         <span class="label-text">{{ item.label }}</span>
       </div>
@@ -37,7 +37,7 @@
            (click)="onItemClick(bottomItem.id)">
         
         <div class="icon-container">
-          <mat-icon class="nav-icon">{{ bottomItem.icon }}</mat-icon>
+          <img [src]="bottomItem.svgPath" [alt]="bottomItem.label" class="nav-icon">
         </div>
         <span class="label-text">{{ bottomItem.label }}</span>
       </div>

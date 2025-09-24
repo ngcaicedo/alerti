@@ -9,6 +9,7 @@ export interface NavItem {
   id: string;
   label: string;
   icon: string;
+  svgPath: string;
   selected?: boolean;
 }
 
@@ -31,17 +32,17 @@ export class CustomNavRailComponent {
   @Output() openedChange = new EventEmitter<boolean>();
 
   topItems: NavItem[] = [
-    { id: 'inicio', label: 'Inicio', icon: 'home' }
+    { id: 'inicio', label: 'Inicio', icon: 'home', svgPath: '../..//assets/icons/inicio.svg' }
   ];
 
   middleItems: NavItem[] = [
-    { id: 'perfil', label: 'Perfil', icon: 'account_circle' },
-    { id: 'calendario', label: 'Calendario', icon: 'today' },
-    { id: 'anadir', label: 'Añadir', icon: 'add_circle' },
-    { id: 'inventario', label: 'Inventario', icon: 'medication' }
+    { id: 'perfil', label: 'Perfil', icon: 'account_circle', svgPath: '../..//assets/icons/perfil.svg' },
+    { id: 'calendario', label: 'Calendario', icon: 'today', svgPath: '../..//assets/icons/calendario.svg' },
+    { id: 'anadir', label: 'Añadir', icon: 'add_circle', svgPath: '../..//assets/icons/anadir.svg' },
+    { id: 'inventario', label: 'Inventario', icon: 'medication', svgPath: '../..//assets/icons/inventario.svg' }
   ];
 
-  bottomItem: NavItem = { id: 'salir', label: 'Salir', icon: 'arrow_back' };
+  bottomItem: NavItem = { id: 'salir', label: 'Salir', icon: 'arrow_back', svgPath: '../..//assets/icons/salir.svg' };
 
   onItemClick(itemId: string): void {
     if (itemId === 'salir') {

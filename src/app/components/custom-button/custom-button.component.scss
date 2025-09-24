@@ -46,13 +46,13 @@
     }
     
     &.secondary {
-        background-color: transparent;
-        color: $m3-sys-light-primary-container;
-        border: 2px solid $m3-sys-light-primary-container;
-        box-shadow: none;
+        background-color: $schemes-secondary-container;
+        color: $m3-sys-light-on-secondary-container;
+        border: none;
+        box-shadow: $elevation-3;
         
         &:hover:not(:disabled) {
-            background-color: rgba($m3-sys-light-primary-container, $state-hover-opacity);
+            background-color: rgba($schemes-secondary-container, 0.9);
         }
     }
     

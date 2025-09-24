@@ -89,7 +89,13 @@
         height: 24px;
         font-size: 24px;
         color: $m3-sys-light-on-surface;
-        transition: color 0.2s ease;
+        transition: color 0.2s ease, filter 0.2s ease;
+        
+        // For SVG images - apply filter to match on-surface color
+        &[src] {
+          object-fit: contain;
+          filter: brightness(0) saturate(100%) invert(9%) sepia(4%) saturate(1234%) hue-rotate(204deg) brightness(97%) contrast(92%);
+        }
       }
     }
 
@@ -116,6 +122,11 @@
         
         .nav-icon {
           color: $m3-sys-light-on-primary-container;
+          
+          // For selected SVG images - apply filter to match on-primary-container color
+          &[src] {
+            filter: brightness(0) saturate(100%) invert(87%) sepia(19%) saturate(373%) hue-rotate(180deg) brightness(99%) contrast(93%);
+          }
         }
       }
       .label-text {
@@ -131,6 +142,9 @@
         }
         .nav-icon, .label-text {
           color: #B3261E;
+        }
+        .nav-icon[src] {
+          filter: brightness(0) saturate(100%) invert(17%) sepia(84%) saturate(2324%) hue-rotate(344deg) brightness(94%) contrast(86%);
         }
       }
     }

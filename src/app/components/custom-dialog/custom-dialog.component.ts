@@ -5,7 +5,8 @@ import { CustomButtonComponent } from '../custom-button/custom-button.component'
 
 export interface DialogData {
   title: string;
-  buttonText: string;
+  buttonText?: string;
+  showButton?: boolean;
 }
 
 @Component({

@@ -4,7 +4,7 @@
   </div>
 </mat-dialog-content>
 
-<mat-dialog-actions class="dialog-actions">
+<mat-dialog-actions class="dialog-actions" *ngIf="data.showButton !== false">
   <div class="actions-container">
     <app-custom-button
       [text]="data.buttonText || 'Entrar'"
