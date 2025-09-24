@@ -18,7 +18,6 @@
     padding: 12px;
   }
 
-  // Header Card
   app-custom-card-header {
     width: calc(100% - 50px);
     margin: 0 auto;
@@ -30,7 +29,6 @@
     }
   }
 
-  // Main Content
   .main-content {
     display: flex;
     flex-direction: column;
@@ -41,7 +39,6 @@
     padding: 2rem 0;
   }
 
-  // Form Sections
   .form-section {
     width: 100%;
     max-width: 1200px;
@@ -53,22 +50,21 @@
       font-size: 22px;
       line-height: 52px;
       text-align: left;
-      margin: 29px 0 30px 0; // Sin margen lateral - completamente a la izquierda
+      margin: 29px 0 30px 0;
 
       @media (max-width: 768px) {
         font-size: 18px;
         line-height: 40px;
-        margin: 20px 0; // Sin margen lateral en mobile también
+        margin: 20px 0;
       }
     }
 
-    // Form Rows (dos columnas)
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 41px;
       margin: 0 29px;
-      margin-bottom: 41px; // Espacio entre filas
+      margin-bottom: 41px;
       align-items: start;
 
       @media (max-width: 768px) {
@@ -78,12 +74,10 @@
         margin-bottom: 20px;
       }
 
-      // Eliminar margin-bottom del último form-row de cada sección
       &:last-child {
         margin-bottom: 0;
       }
 
-      // Campos de formulario
       app-custom-text-field,
       app-custom-listbox {
         width: 100%;
@@ -94,9 +88,7 @@
         }
       }
 
-      // Ajuste específico para el listbox
       app-custom-listbox {
-        // Asegurar que el listbox tenga el ancho correcto
         ::ng-deep .custom-listbox-container {
           width: 100%;
         }
@@ -104,7 +96,6 @@
     }
   }
 
-  // Botón de registro
   .signup-button-container {
     display: flex;
     justify-content: center;
@@ -118,7 +109,6 @@
     }
   }
 
-  // Footer
   .signup-footer {
     display: flex;
     flex-direction: column;
@@ -166,14 +156,13 @@
     }
   }
 
-  // Loading state
   &.loading {
     pointer-events: none;
     opacity: 0.7;
   }
 }
 
-// Responsive breakpoints adicionales
+
 @media (max-width: 600px) {
   .signup-container {
     .form-section {
@@ -189,7 +178,6 @@
   }
 }
 
-// Ajustes específicos para pantallas muy pequeñas
 @media (max-width: 480px) {
   .signup-container {
     padding: 10px;

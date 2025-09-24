@@ -29,17 +29,14 @@ export class SignupComponent {
     private dialog: MatDialog
   ) {}
   
-  // Datos personales
   nombreCompleto: string = '';
   fechaNacimiento: string = '';
   numerocelular: string = '';
   genero: string = '';
   
-  // Datos de cuenta
   usuario: string = '';
   password: string = '';
 
-  // Opciones para el selector de género
   genderOptions: ListboxOption[] = [
     { value: 'femenino', label: 'Femenino' },
     { value: 'masculino', label: 'Masculino' },
@@ -47,7 +44,6 @@ export class SignupComponent {
     { value: 'otro', label: 'Otro' }
   ];
 
-  // Manejo de creación de cuenta
   onSignup(): void {
     console.log('Signup attempt:', {
       nombreCompleto: this.nombreCompleto,
@@ -58,13 +54,12 @@ export class SignupComponent {
       password: this.password
     });
     
-    // Abrir dialog de confirmación
     const dialogRef = this.dialog.open(CustomDialogComponent, {
       data: {
         title: 'Tu cuenta ha sido creada exitosamente',
         buttonText: 'Entrar'
       },
-      disableClose: true, // No permite cerrar con ESC o click fuera
+      disableClose: true,
       hasBackdrop: true,
       backdropClass: 'custom-dialog-backdrop'
     });
@@ -77,18 +72,15 @@ export class SignupComponent {
     });
   }
 
-  // Navegar a login
   onLogin(): void {
     console.log('Navigate to login');
     this.router.navigate(['/login']);
   }
 
-  // Manejo de cambios en inputs
   onInputChange(field: string, value: string): void {
     console.log(`${field} changed:`, value);
   }
 
-  // Manejo de cambios en listbox
   onListboxChange(field: string, value: any): void {
     console.log(`${field} changed to:`, value);
   }
