@@ -1,0 +1,26 @@
+<div class="main-layout-container">
+  
+  <app-custom-nav-rail
+    class="nav-rail-section"
+    [selectedItemId]="selectedNavItem"
+    [opened]="navRailOpened"
+    [mode]="navRailMode"
+    (itemClick)="onNavItemClick($event)"
+    (logoutClick)="onLogout()"
+    (openedChange)="onNavRailOpenedChange($event)">
+  </app-custom-nav-rail>
+  
+  <app-custom-card-header
+    class="content-area"
+    variant="content"
+    [height]="contentHeight"
+    [width]="contentWidth"
+    [showTitle]="false"
+    [showBackgroundPattern]="showBackgroundPattern">
+    
+    <ng-content>
+    </ng-content>
+    
+  </app-custom-card-header>
+  
+</div>

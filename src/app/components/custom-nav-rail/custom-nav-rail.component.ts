@@ -37,8 +37,8 @@ export class CustomNavRailComponent {
   middleItems: NavItem[] = [
     { id: 'perfil', label: 'Perfil', icon: 'account_circle' },
     { id: 'calendario', label: 'Calendario', icon: 'today' },
-    { id: 'anadir', label: 'Añadir', icon: 'add' },
-    { id: 'inventario', label: 'Inventario', icon: 'pill' }
+    { id: 'anadir', label: 'Añadir', icon: 'add_circle' },
+    { id: 'inventario', label: 'Inventario', icon: 'medication' }
   ];
 
   bottomItem: NavItem = { id: 'salir', label: 'Salir', icon: 'arrow_back' };

@@ -66,8 +66,8 @@ export class SignupComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'action') {
-        console.log('Usuario eligió "Entrar" - navegando a login');
-        this.router.navigate(['/login']);
+        console.log('Usuario eligió "Entrar" - navegando a dashboard');
+        this.router.navigate(['/dashboard']);
       }
     });
   }

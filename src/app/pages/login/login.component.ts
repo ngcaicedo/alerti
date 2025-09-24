@@ -27,6 +27,13 @@ export class LoginComponent {
 
   onLogin(): void {
     console.log('Login attempt:', { usuario: this.usuario, password: this.password });
+
+    if (this.usuario && this.password) {
+      console.log('Login exitoso - navegando a dashboard');
+      this.router.navigate(['/dashboard']);
+    } else {
+      console.log('Login fallido - campos requeridos');
+    }
   }
 
   onRegister(): void {

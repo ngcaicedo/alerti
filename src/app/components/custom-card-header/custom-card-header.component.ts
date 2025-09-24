@@ -15,4 +15,5 @@ export class CustomCardHeaderComponent {
   @Input() showBackgroundPattern: boolean = true;
   @Input() variant: 'header' | 'content' = 'header';
   @Input() width: string = '100%';
+  @Input() showTitle: boolean = true;
 }

@@ -6,23 +6,18 @@
     (openedChange)="onOpenedChange($event)"
     class="nav-rail">
     
-    <div class="top-section">
-      <div class="nav-item" 
-           *ngFor="let item of topItems"
-           [class.selected]="isSelected(item.id)"
-           (click)="onItemClick(item.id)">
-        
-        <div class="icon-container">
-          <div class="state-layer">
-            <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
-          </div>
-        </div>
-        
-        <span class="label-text">{{ item.label }}</span>
-      </div>
+    <div class="nav-item" 
+         *ngFor="let item of topItems"
+         [class.selected]="isSelected(item.id)"
+         (click)="onItemClick(item.id)">
       
-      <mat-divider class="nav-divider"></mat-divider>
+      <div class="icon-container">
+        <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
+      </div>
+      <span class="label-text">{{ item.label }}</span>
     </div>
+    
+    <mat-divider class="nav-divider"></mat-divider>
 
     <div class="middle-section">
       <div class="nav-item" 
@@ -31,11 +26,8 @@
            (click)="onItemClick(item.id)">
         
         <div class="icon-container">
-          <div class="state-layer">
-            <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
-          </div>
+          <mat-icon class="nav-icon">{{ item.icon }}</mat-icon>
         </div>
-        
         <span class="label-text">{{ item.label }}</span>
       </div>
     </div>
@@ -45,18 +37,15 @@
            (click)="onItemClick(bottomItem.id)">
         
         <div class="icon-container">
-          <div class="state-layer">
-            <mat-icon class="nav-icon">{{ bottomItem.icon }}</mat-icon>
-          </div>
+          <mat-icon class="nav-icon">{{ bottomItem.icon }}</mat-icon>
         </div>
-        
         <span class="label-text">{{ bottomItem.label }}</span>
       </div>
     </div>
 
   </mat-sidenav>
 
-  <mat-sidenav-content class="main-content">
+  <mat-sidenav-content>
     <ng-content></ng-content>
   </mat-sidenav-content>
 

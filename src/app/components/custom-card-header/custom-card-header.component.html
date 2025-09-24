@@ -9,13 +9,18 @@
   </div>
   
   <mat-card-content class="card-content">
-    <h1 class="card-title" 
+    <h1 *ngIf="showTitle"
+        class="card-title" 
         [ngClass]="{
             'title-style-default': titleStyle === 'default',
             'title-style-small': titleStyle === 'small'
         }">
       {{ title }}
     </h1>
+    
+    <div *ngIf="!showTitle" class="dynamic-content">
+      <ng-content></ng-content>
+    </div>
   </mat-card-content>
   
 </mat-card>
