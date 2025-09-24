@@ -4,7 +4,6 @@
 .custom-card-header {
   position: relative;
   width: 100%;
-  min-height: 140px;
   
   background-color: $card-background;
   
@@ -46,14 +45,27 @@
       text-align: center;
       margin: 0;
       
-      @media (max-width: 768px) {
-        font-size: 40px;
-        line-height: 48px;
+      &.title-style-default {
+        @include apply-typography($m3-display-large-emphasized);
+        
+        @media (max-width: 768px) {
+          font-size: 40px;
+          line-height: 48px;
+        }
+        
+        @media (max-width: 480px) {
+          font-size: 32px;
+          line-height: 40px;
+        }
       }
-      
-      @media (max-width: 480px) {
-        font-size: 32px;
-        line-height: 40px;
+
+      &.title-style-small {
+        @include apply-typography($m3-display-medium-emphasized);
+        
+        @media (max-width: 768px) {
+          font-size: 28px;
+          line-height: 52px;
+        }
       }
     }
   }

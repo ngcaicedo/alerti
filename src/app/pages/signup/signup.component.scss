@@ -1,0 +1,209 @@
+@use "../../../styles/colors" as *;
+@use "../../../styles/fonts" as *;
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 25px 20px 20px 20px;
+
+  @media (max-width: 1400px) {
+    max-width: 95%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
+
+  // Header Card
+  app-custom-card-header {
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    display: block;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  // Main Content
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+    padding: 2rem 0;
+  }
+
+  // Form Sections
+  .form-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+
+    .section-title {
+      @include apply-typography($login-title);
+      color: $m3-sys-light-on-surface;
+      font-size: 22px;
+      line-height: 52px;
+      text-align: left;
+      margin: 29px 0 30px 0; // Sin margen lateral - completamente a la izquierda
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        line-height: 40px;
+        margin: 20px 0; // Sin margen lateral en mobile también
+      }
+    }
+
+    // Form Rows (dos columnas)
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 41px;
+      margin: 0 29px;
+      margin-bottom: 41px; // Espacio entre filas
+      align-items: start;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 0 15px;
+        margin-bottom: 20px;
+      }
+
+      // Eliminar margin-bottom del último form-row de cada sección
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      // Campos de formulario
+      app-custom-text-field,
+      app-custom-listbox {
+        width: 100%;
+        max-width: 443px;
+
+        @media (max-width: 768px) {
+          max-width: 100%;
+        }
+      }
+
+      // Ajuste específico para el listbox
+      app-custom-listbox {
+        // Asegurar que el listbox tenga el ancho correcto
+        ::ng-deep .custom-listbox-container {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // Botón de registro
+  .signup-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+
+    .signup-button {
+      ::ng-deep app-custom-button {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  // Footer
+  .signup-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 423px;
+    margin: 0 auto;
+    flex-shrink: 0;
+    padding-top: 1rem;
+
+    .login-text {
+      @include apply-typography($login-footer-primary);
+      text-align: center;
+      color: $m3-sys-light-on-surface;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    .login-link {
+      @include apply-typography($login-footer-secondary);
+      text-align: center;
+      color: $login-register-link;
+      margin: 0;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+
+      &:hover {
+        color: $m3-sys-light-primary;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        outline: 2px solid $m3-sys-light-primary;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  // Loading state
+  &.loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+// Responsive breakpoints adicionales
+@media (max-width: 600px) {
+  .signup-container {
+    .form-section {
+      .form-row {
+        gap: 15px;
+        
+        app-custom-text-field,
+        app-custom-listbox {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Ajustes específicos para pantallas muy pequeñas
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 10px;
+    
+    .form-section {
+      .section-title {
+        font-size: 16px;
+        line-height: 35px;
+        margin: 15px 10px;
+      }
+      
+      .form-row {
+        margin: 0 10px;
+      }
+    }
+  }
+}

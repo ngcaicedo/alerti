@@ -25,7 +25,6 @@ export class CustomListboxComponent {
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
   @Input() multiple: boolean = false;
-  @Input() width: string = '322px';
 
   @Output() valueChange = new EventEmitter<any>();
   @Output() selectionChange = new EventEmitter<any>();

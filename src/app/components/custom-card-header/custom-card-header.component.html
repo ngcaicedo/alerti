@@ -8,7 +8,13 @@
   </div>
   
   <mat-card-content class="card-content">
-    <h1 class="card-title">{{ title }}</h1>
+    <h1 class="card-title" 
+        [ngClass]="{
+            'title-style-default': titleStyle === 'default',
+            'title-style-small': titleStyle === 'small'
+        }">
+      {{ title }}
+    </h1>
   </mat-card-content>
   
 </mat-card>

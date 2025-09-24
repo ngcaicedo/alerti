@@ -10,6 +10,14 @@ $m3-display-large-emphasized: (
   letter-spacing: -0.25px
 );
 
+$m3-display-medium-emphasized: (
+  font-family: $font-family-base,
+  font-weight: 400,
+  font-size: 28px,
+  line-height: 52px,
+  letter-spacing: 0
+);
+
 $m3-title-medium: (
   font-family: $font-family-base,
   font-weight: 500,
@@ -45,7 +53,7 @@ $m3-body-small: (
 $login-title: (
   font-family: $font-family-base,
   font-weight: 400,
-  font-size: 24px,
+  font-size: 22px,
   line-height: 52px,
   letter-spacing: 0
 );

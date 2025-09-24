@@ -11,5 +11,6 @@ import { CommonModule } from '@angular/common';
 export class CustomCardHeaderComponent {
   @Input() title: string = 'Bienvenido a Alerti';
   @Input() height: string = '140px';
+  @Input() titleStyle: 'default' | 'small' = 'default';
   @Input() showBackgroundPattern: boolean = true;
 }
