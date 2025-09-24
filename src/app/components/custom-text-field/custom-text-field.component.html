@@ -6,7 +6,7 @@
   
   <input 
     matInput
-    type="text"
+    [type]="type"
     [placeholder]="placeholder"
     [(ngModel)]="value"
     (ngModelChange)="onValueChange($event)">

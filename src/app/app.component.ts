@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CustomButtonComponent } from './components/custom-button/custom-button.component';
-import { CustomTextFieldComponent } from './components/custom-text-field/custom-text-field.component';
-import { CustomCardHeaderComponent } from './components/custom-card-header/custom-card-header.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CustomButtonComponent, CustomTextFieldComponent, CustomCardHeaderComponent],
+  imports: [RouterOutlet, FormsModule, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

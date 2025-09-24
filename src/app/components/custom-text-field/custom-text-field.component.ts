@@ -13,6 +13,7 @@ export class CustomTextFieldComponent {
   @Input() label: string = '';
   @Input() value: string = '';
   @Input() placeholder: string = '';
+  @Input() type: 'text' | 'password' = 'text';
   @Output() valueChange = new EventEmitter<string>();
   @Output() inputChange = new EventEmitter<string>();
 

@@ -42,6 +42,30 @@ $m3-body-small: (
   letter-spacing: 0.4px
 );
 
+$login-title: (
+  font-family: $font-family-base,
+  font-weight: 400,
+  font-size: 24px,
+  line-height: 52px,
+  letter-spacing: 0
+);
+
+$login-footer-primary: (
+  font-family: $font-family-base,
+  font-weight: 400,
+  font-size: 20px,
+  line-height: 51px,
+  letter-spacing: 0
+);
+
+$login-footer-secondary: (
+  font-family: $font-family-base,
+  font-weight: 400,
+  font-size: 18px,
+  line-height: 49px,
+  letter-spacing: 0
+);
+
 @mixin apply-typography($style-map) {
   font-family: map.get($style-map, 'font-family');
   font-weight: map.get($style-map, 'font-weight');
