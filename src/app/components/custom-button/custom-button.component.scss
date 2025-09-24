@@ -1,0 +1,112 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/fonts' as *;
+@use 'sass:color';
+
+.custom-button {
+    border-radius: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: $elevation-3;
+    gap: 8px;
+    padding: 16px;
+    min-height: 40px;
+    
+    @include apply-typography($m3-title-medium);
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    // Size variants
+    &.small {
+        height: 56px;
+        padding: 16px;
+        @include apply-typography($m3-title-medium);
+    }
+    
+    &.medium {
+        height: 64px;
+        padding: 20px;
+        @include apply-typography($m3-title-medium);
+    }
+    
+    &.large {
+        height: 72px;
+        padding: 24px;
+        @include apply-typography($m3-title-large);
+    }
+
+    &.primary {
+        background-color: $m3-sys-light-primary-container;
+        color: $m3-sys-light-on-primary-container;
+        
+        &:hover:not(:disabled) {
+            background-color: color.mix($m3-sys-light-primary-container, black, 95%);
+        }
+    }
+    
+    &.secondary {
+        background-color: transparent;
+        color: $m3-sys-light-primary-container;
+        border: 2px solid $m3-sys-light-primary-container;
+        box-shadow: none;
+        
+        &:hover:not(:disabled) {
+            background-color: rgba($m3-sys-light-primary-container, $state-hover-opacity);
+        }
+    }
+    
+    &.text {
+        background-color: transparent;
+        color: $m3-sys-light-primary-container;
+        box-shadow: none;
+        
+        &:hover:not(:disabled) {
+            background-color: rgba($m3-sys-light-primary-container, $state-hover-opacity);
+        }
+    }
+
+    mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    &:hover:not(:disabled) {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: $elevation-4;
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+        transition: transform 0.1s ease;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $m3-sys-light-primary;
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        opacity: $button-disabled-opacity;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: $elevation-3;
+        
+        &:hover {
+            transform: none;
+            box-shadow: $elevation-3;
+        }
+    }
+}

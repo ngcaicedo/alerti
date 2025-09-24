@@ -9,3 +9,27 @@ $m3-display-large-emphasized: (
   line-height: 64px,
   letter-spacing: -0.25px
 );
+
+$m3-title-medium: (
+  font-family: $font-family-base,
+  font-weight: 500,
+  font-size: 16px,
+  line-height: 24px,
+  letter-spacing: 0.15px
+);
+
+$m3-title-large: (
+  font-family: $font-family-base,
+  font-weight: 500,
+  font-size: 18px,
+  line-height: 28px,
+  letter-spacing: 0.1px
+);
+
+@mixin apply-typography($style-map) {
+  font-family: map.get($style-map, 'font-family');
+  font-weight: map.get($style-map, 'font-weight');
+  font-size: map.get($style-map, 'font-size');
+  line-height: map.get($style-map, 'line-height');
+  letter-spacing: map.get($style-map, 'letter-spacing');
+}

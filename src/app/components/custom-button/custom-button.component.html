@@ -1,0 +1,8 @@
+<button 
+  mat-raised-button 
+  [class]="'custom-button ' + variant + ' ' + size"
+  [disabled]="disabled"
+  (click)="handleClick()">
+  <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  <span>{{ text }}</span>
+</button>
