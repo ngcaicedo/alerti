@@ -18,8 +18,16 @@
     [showTitle]="false"
     [showBackgroundPattern]="showBackgroundPattern">
     
-    <ng-content>
-    </ng-content>
+    <div [ngSwitch]="selectedNavItem">
+      <app-change-password 
+        *ngSwitchCase="'perfil'" 
+        (navigateToHome)="onNavigateToHome()">
+      </app-change-password>
+      
+      <div *ngSwitchDefault class="default-content">
+        <ng-content></ng-content>
+      </div>
+    </div>
     
   </app-custom-card-header>
   

@@ -2,10 +2,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomNavRailComponent } from '../../components/custom-nav-rail/custom-nav-rail.component';
 import { CustomCardHeaderComponent } from '../../components/custom-card-header/custom-card-header.component';
+import { ChangePasswordComponent } from '../../pages/change-password/change-password.component';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [CommonModule, CustomNavRailComponent, CustomCardHeaderComponent],
+  imports: [CommonModule, CustomNavRailComponent, CustomCardHeaderComponent, ChangePasswordComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
@@ -35,5 +36,10 @@ export class MainLayoutComponent {
   onNavRailOpenedChange(opened: boolean): void {
     this.navRailOpened = opened;
     this.navRailOpenedChange.emit(opened);
+  }
+
+  onNavigateToHome(): void {
+    this.selectedNavItem = 'inicio';
+    this.navItemClick.emit('inicio');
   }
 }

@@ -63,3 +63,19 @@
   overflow-y: auto;
   max-height: 100%;
 }
+
+.default-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  p {
+    @include apply-typography($m3-body-large);
+    color: $m3-sys-light-on-surface-variant;
+    text-align: center;
+    margin: 0;
+  }
+}
