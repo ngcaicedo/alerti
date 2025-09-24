@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CustomNavRailComponent } from '../../components/custom-nav-rail/custom-nav-rail.component';
 import { CustomCardHeaderComponent } from '../../components/custom-card-header/custom-card-header.component';
 import { ChangePasswordComponent } from '../../pages/change-password/change-password.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
@@ -11,6 +12,10 @@ import { ChangePasswordComponent } from '../../pages/change-password/change-pass
   styleUrl: './main-layout.component.scss'
 })
 export class MainLayoutComponent {
+
+  constructor(
+    private router: Router
+  ) {}
   
   @Input() selectedNavItem: string = 'inicio';
   @Input() navRailOpened: boolean = true;
@@ -21,7 +26,6 @@ export class MainLayoutComponent {
   @Input() showBackgroundPattern: boolean = false;
   
   @Output() navItemClick = new EventEmitter<string>();
-  @Output() logoutClick = new EventEmitter<void>();
   @Output() navRailOpenedChange = new EventEmitter<boolean>();
 
   onNavItemClick(itemId: string): void {
@@ -30,7 +34,7 @@ export class MainLayoutComponent {
   }
 
   onLogout(): void {
-    this.logoutClick.emit();
+    this.router.navigate(['/login']);
   }
 
   onNavRailOpenedChange(opened: boolean): void {
