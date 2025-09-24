@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 import { CustomCardHeaderComponent } from '../../components/custom-card-header/custom-card-header.component';
 import { CustomTextFieldComponent } from '../../components/custom-text-field/custom-text-field.component';
 import { CustomButtonComponent } from '../../components/custom-button/custom-button.component';
 import { CustomListboxComponent, ListboxOption } from '../../components/custom-listbox/custom-listbox.component';
-import { CommonModule } from '@angular/common';
+import { CustomDialogComponent } from '../../components/custom-dialog/custom-dialog.component';
 
 @Component({
   selector: 'app-signup',
@@ -20,6 +22,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
+  
+  constructor(private dialog: MatDialog) {}
+  
   // Datos personales
   nombreCompleto: string = '';
   fechaNacimiento: string = '';
@@ -48,7 +53,24 @@ export class SignupComponent {
       usuario: this.usuario,
       password: this.password
     });
-    // Aquí iría la lógica de registro
+    
+    // Abrir dialog de confirmación
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      data: {
+        title: 'Tu cuenta ha sido creada exitosamente',
+        buttonText: 'Entrar'
+      },
+      disableClose: true, // No permite cerrar con ESC o click fuera
+      hasBackdrop: true,
+      backdropClass: 'custom-dialog-backdrop'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'action') {
+        console.log('Usuario eligió "Entrar"');
+        this.onLogin(); // Navegar al login
+      }
+    });
   }
 
   // Navegar a login

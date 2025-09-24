@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, LoginComponent],
+  imports: [RouterOutlet, FormsModule, LoginComponent, SignupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
