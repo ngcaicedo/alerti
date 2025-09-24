@@ -1,0 +1,14 @@
+<mat-card 
+  class="custom-card-header"
+  [ngStyle]="{ height: height }">
+  
+  <div 
+    class="background-pattern"
+    *ngIf="showBackgroundPattern">
+  </div>
+  
+  <mat-card-content class="card-content">
+    <h1 class="card-title">{{ title }}</h1>
+  </mat-card-content>
+  
+</mat-card>

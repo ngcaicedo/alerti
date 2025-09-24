@@ -1,0 +1,15 @@
+import { Component, Input } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-custom-card-header',
+  imports: [CommonModule, MatCardModule],
+  templateUrl: './custom-card-header.component.html',
+  styleUrl: './custom-card-header.component.scss'
+})
+export class CustomCardHeaderComponent {
+  @Input() title: string = 'Bienvenido a Alerti';
+  @Input() height: string = '140px';
+  @Input() showBackgroundPattern: boolean = true;
+}
