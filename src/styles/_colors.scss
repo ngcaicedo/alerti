@@ -13,3 +13,14 @@ $elevation-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 
 $elevation-4: 0px 2px 6px 0px rgba(0, 0, 0, 0.35), 0px 6px 12px 4px rgba(0, 0, 0, 0.2);
 
 $button-disabled-opacity: 0.38;
+
+$textfield-background: #FEF7FF;
+$textfield-outline: $m3-sys-light-primary-container;
+$textfield-outline-hover: $m3-sys-light-primary;
+$textfield-outline-focus: $m3-sys-light-primary;
+$textfield-outline-disabled: rgba($m3-sys-light-on-surface, 0.12);
+$textfield-text: $m3-sys-light-primary-container;
+$textfield-text-disabled: rgba($m3-sys-light-on-surface, 0.38);
+$textfield-placeholder: rgba($m3-sys-light-primary-container, 0.6);
+$textfield-label: $m3-sys-light-primary-container;
+$textfield-label-focus: $m3-sys-light-primary;

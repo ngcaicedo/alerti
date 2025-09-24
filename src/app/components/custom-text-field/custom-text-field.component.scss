@@ -1,0 +1,96 @@
+@use '../../../styles/colors' as *;
+@use '../../../styles/fonts' as *;
+
+.custom-text-field {
+  width: 100%;
+  min-width: 280px;
+  height: 56px;
+  
+  .mat-mdc-form-field-wrapper {
+    padding-bottom: 0;
+    height: 56px;
+  }
+  
+  .mat-mdc-text-field-wrapper {
+    height: 56px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-mdc-form-field-infix {
+    min-height: 48px;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-mdc-form-field-flex {
+    padding-left: 16px;
+    padding-right: 4px;
+    align-items: center;
+    min-height: 56px;
+  }
+  
+  .mat-mdc-form-field-outline {
+    .mdc-notched-outline__leading {
+      border-radius: 4px 0 0 0;
+      border-right: none;
+    }
+    
+    .mdc-notched-outline__trailing {
+      border-radius: 0 4px 0 0;
+      border-left: none;
+    }
+    
+    .mdc-notched-outline__notch {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+  }
+  
+  .mat-mdc-input-element {
+    @include apply-typography($m3-body-large);
+    height: auto;
+    padding: 0;
+  }
+  
+  .mat-mdc-floating-label {
+    @include apply-typography($m3-body-small);
+    
+    &.mdc-floating-label--float-above {
+      padding: 0 4px;
+      margin-left: -4px;
+      border-radius: 2px;
+      transform: translateY(-50%) translateX(-4px) scale(0.75);
+      top: 8px;
+    }
+  }
+}
+
+// Override Material Design CSS Custom Properties
+:host {
+  --mdc-theme-primary: #{$textfield-outline-focus};
+  --mat-form-field-container-text-color: #{$textfield-text};
+  --mat-form-field-outlined-label-text-color: #{$textfield-label};
+  --mat-form-field-focus-select-arrow-color: #{$textfield-outline-focus};
+
+  .mat-mdc-form-field {
+    --mdc-outlined-text-field-outline-color: #{$textfield-outline};
+    --mdc-outlined-text-field-focus-outline-color: #{$textfield-outline-focus};
+    --mdc-outlined-text-field-hover-outline-color: #{$textfield-outline-hover};
+    --mdc-outlined-text-field-disabled-outline-color: #{$textfield-outline-disabled};
+    --mdc-outlined-text-field-input-text-color: #{$textfield-text};
+    --mdc-outlined-text-field-input-text-placeholder-color: #{$textfield-placeholder};
+    --mdc-outlined-text-field-label-text-color: #{$textfield-label};
+    --mdc-outlined-text-field-focus-label-text-color: #{$textfield-label-focus};
+    --mdc-outlined-text-field-disabled-input-text-color: #{$textfield-text-disabled};
+    --mdc-outlined-text-field-disabled-label-text-color: #{$textfield-text-disabled};
+    
+    .mat-mdc-floating-label {
+      &.mdc-floating-label--float-above {
+        background-color: #{$textfield-background} !important;
+      }
+    }
+  }
+}

@@ -26,6 +26,22 @@ $m3-title-large: (
   letter-spacing: 0.1px
 );
 
+$m3-body-large: (
+  font-family: $font-family-base,
+  font-weight: 400,
+  font-size: 16px,
+  line-height: 24px,
+  letter-spacing: 0.5px
+);
+
+$m3-body-small: (
+  font-family: $font-family-base,
+  font-weight: 400,
+  font-size: 12px,
+  line-height: 16px,
+  letter-spacing: 0.4px
+);
+
 @mixin apply-typography($style-map) {
   font-family: map.get($style-map, 'font-family');
   font-weight: map.get($style-map, 'font-weight');
