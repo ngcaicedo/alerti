@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use 'styles/_fonts' as *;
+@use 'styles/_colors' as *;
+
+html, body { 
+    height: 100%; 
+    font-family: $font-family-base;
+    margin: 0;
+    padding: 0;
+}
