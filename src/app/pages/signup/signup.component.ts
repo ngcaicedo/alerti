@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomCardHeaderComponent } from '../../components/custom-card-header/custom-card-header.component';
 import { CustomTextFieldComponent } from '../../components/custom-text-field/custom-text-field.component';
@@ -23,7 +24,10 @@ import { CustomDialogComponent } from '../../components/custom-dialog/custom-dia
 })
 export class SignupComponent {
   
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
   
   // Datos personales
   nombreCompleto: string = '';
@@ -67,8 +71,8 @@ export class SignupComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'action') {
-        console.log('Usuario eligió "Entrar"');
-        this.onLogin(); // Navegar al login
+        console.log('Usuario eligió "Entrar" - navegando a login');
+        this.router.navigate(['/login']);
       }
     });
   }
@@ -76,7 +80,7 @@ export class SignupComponent {
   // Navegar a login
   onLogin(): void {
     console.log('Navigate to login');
-    // Aquí iría la navegación a login
+    this.router.navigate(['/login']);
   }
 
   // Manejo de cambios en inputs

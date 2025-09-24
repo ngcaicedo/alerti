@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { CustomCardHeaderComponent } from '../../components/custom-card-header/custom-card-header.component';
 import { CustomTextFieldComponent } from '../../components/custom-text-field/custom-text-field.component';
 import { CustomButtonComponent } from '../../components/custom-button/custom-button.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  
+  constructor(private router: Router) {}
+  
   usuario: string = '';
   password: string = '';
 
@@ -26,7 +30,8 @@ export class LoginComponent {
   }
 
   onRegister(): void {
-    console.log('Navigate to register');
+    console.log('Navigate to signup');
+    this.router.navigate(['/signup']);
   }
 
   onInputChange(field: string, value: string): void {
