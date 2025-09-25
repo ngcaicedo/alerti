@@ -1,0 +1,28 @@
+<div class="medication-chart">
+  <div class="chart-container">
+    <svg class="chart-svg" viewBox="0 0 180 180">
+      <path
+        *ngFor="let item of data; let i = index"
+        [attr.d]="getArcPath(i)"
+        [attr.fill]="'none'"
+        [attr.stroke]="item.color"
+        [attr.stroke-width]="12"
+        class="chart-segment"
+      />
+      
+      <text
+        *ngFor="let item of data; let i = index"
+        [attr.x]="getInnerLabelPosition(i).x"
+        [attr.y]="getInnerLabelPosition(i).y"
+        class="inner-percentage-label"
+        text-anchor="middle"
+        dominant-baseline="middle"
+      >
+        {{ item.value }}%
+      </text>
+    </svg>
+    <div class="chart-center">
+      <h3 class="chart-title">Medicamentos</h3>
+    </div>
+  </div>
+</div>

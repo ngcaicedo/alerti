@@ -1,0 +1,275 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/fonts' as fonts;
+
+.inventory-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.inventory-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1400px;
+  gap: 32px;
+}
+
+// Header del inventario
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title {
+  @include fonts.apply-typography(fonts.$m3-display-medium-emphasized);
+  color: colors.$m3-sys-light-on-surface;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+// Sección de agregar medicamento
+.add-medication-section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// Tabla de medicamentos
+.medications-table {
+  width: 100%;
+}
+
+.table-container {
+  background: colors.$card-background;
+  border: 1px solid colors.$m3-sys-light-primary-container;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: colors.$elevation-3;
+}
+
+.medications-table-content {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  
+  thead {
+    background: rgba(colors.$m3-sys-light-primary-container, 0.1);
+    
+    th {
+      @include fonts.apply-typography(fonts.$m3-title-medium);
+      color: colors.$m3-sys-light-on-surface;
+      font-weight: 600;
+      padding: 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid colors.$m3-sys-light-primary-container;
+      border-right: 1px solid rgba(colors.$m3-sys-light-primary-container, 0.3);
+      
+      &:nth-child(1) { width: 25%; } // Nombre
+      &:nth-child(2) { width: 20%; } // Fecha de vencimiento
+      &:nth-child(3) { width: 15%; } // Cantidad
+      &:nth-child(4) { width: 20%; } // Unidad
+      &:nth-child(5) { width: 20%; } // Acciones
+      
+      &:first-child {
+        padding-left: 32px;
+      }
+      
+      &:last-child {
+        padding-right: 32px;
+        border-right: none;
+      }
+    }
+  }
+  
+  tbody {
+    td {
+      @include fonts.apply-typography(fonts.$m3-body-large);
+      color: colors.$m3-sys-light-on-surface;
+      padding: 16px 12px;
+      border-bottom: 1px solid rgba(colors.$m3-sys-light-primary-container, 0.2);
+      border-right: 1px solid rgba(colors.$m3-sys-light-primary-container, 0.2);
+      text-align: center;
+      vertical-align: middle;
+      
+      &:first-child {
+        padding-left: 32px;
+      }
+      
+      &:last-child {
+        padding-right: 32px;
+        border-right: none;
+      }
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    tr:hover {
+      background: rgba(colors.$m3-sys-light-primary-container, 0.05);
+    }
+    
+    // Fila con datos
+    tr.data-row td {
+      height: 56px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    
+    // Fila de edición
+    tr.edit-row td {
+      height: 56px;
+      vertical-align: middle;
+      background: rgba(colors.$m3-sys-light-primary-container, 0.05);
+      white-space: nowrap;
+    }
+    
+    // Fila vacía para dar perspectiva de tabla vacía
+    tr.empty-row td {
+      height: 417px;
+      border-bottom: none;
+      border-right: 1px solid rgba(colors.$m3-sys-light-primary-container, 0.2);
+      
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+// Estilos para el contenido de las celdas
+.cell-content {
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+}
+
+// Estilos para inputs y elementos de la tabla
+.edit-icon {
+  color: colors.$m3-sys-light-primary-container;
+  cursor: pointer;
+  font-size: 20px;
+  
+  &:hover {
+    color: colors.$m3-sys-light-primary;
+  }
+}
+
+.table-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-surface;
+  text-align: center;
+  
+  &::placeholder {
+    color: colors.$m3-sys-light-on-surface-variant;
+    opacity: 0.6;
+  }
+}
+
+.table-checkbox {
+  ::ng-deep {
+    .mat-checkbox-frame {
+      border-color: colors.$m3-sys-light-primary-container;
+    }
+    
+    .mat-checkbox-checkmark-path {
+      stroke: colors.$m3-sys-light-on-primary-container;
+    }
+    
+    .mat-checkbox-checked .mat-checkbox-background {
+      background-color: colors.$m3-sys-light-primary-container;
+    }
+  }
+}
+
+// Botón de añadir
+.add-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: colors.$m3-sys-light-primary-container;
+  color: colors.$m3-sys-light-on-primary-container;
+  cursor: pointer;
+  @include fonts.apply-typography(fonts.$m3-title-medium);
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: colors.$elevation-3;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: colors.$m3-sys-light-primary;
+    box-shadow: colors.$elevation-4;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .inventory-content {
+    padding: 20px 16px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+  }
+  
+  .inventory-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  
+  .add-medication-section {
+    justify-content: center;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .medications-table-content {
+    min-width: 600px;
+    
+    th, td {
+      padding: 12px 8px;
+      
+      &:first-child {
+        padding-left: 20px;
+      }
+      
+      &:last-child {
+        padding-right: 20px;
+      }
+    }
+    
+    // Ajustar altura de fila vacía en móviles
+    tr.empty-row td {
+      height: 250px;
+    }
+    
+    tr.data-row td,
+    tr.edit-row td {
+      height: 48px;
+    }
+  }
+  
+  .add-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,96 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/fonts' as fonts;
+
+.medication-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+.chart-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-segment {
+  transition: all 0.3s ease;
+}
+
+.chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-title {
+  @include fonts.apply-typography(fonts.$m3-title-medium);
+  color: colors.$m3-sys-light-on-surface;
+  margin: 0;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+}
+
+.inner-percentage-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: #1D1B20;
+}
+
+.percentage-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: #1D1B20;
+  opacity: 0.9;
+}
+
+  @media (max-width: 768px) {
+  .chart-container {
+    width: 140px;
+    height: 140px;
+  }
+
+  .chart-title {
+    font-size: 11px;
+  }
+
+  .inner-percentage-label {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .chart-title {
+    font-size: 10px;
+  }
+
+  .inner-percentage-label {
+    font-size: 8px;
+  }
+}

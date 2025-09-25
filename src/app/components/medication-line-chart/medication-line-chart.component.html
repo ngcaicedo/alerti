@@ -1,0 +1,78 @@
+<div class="line-chart">
+  <div class="chart-header">
+    <h3 class="chart-title">Medicamentos tomados</h3>
+  </div>
+  
+  <div class="chart-container">
+    <svg class="chart-svg" viewBox="0 0 320 180">
+      <!-- Grid lines -->
+      <g class="grid-lines">
+        <line x1="30" y1="20" x2="30" y2="140" stroke="#E1F9EE" stroke-width="1"/>
+        <line x1="30" y1="140" x2="290" y2="140" stroke="#E1F9EE" stroke-width="1"/>
+        <line x1="30" y1="110" x2="290" y2="110" stroke="#BDD3E8" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <line x1="30" y1="80" x2="290" y2="80" stroke="#BDD3E8" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <line x1="30" y1="50" x2="290" y2="50" stroke="#BDD3E8" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <line x1="30" y1="20" x2="290" y2="20" stroke="#BDD3E8" stroke-width="0.5" stroke-dasharray="2,2"/>
+      </g>
+      
+      <!-- Y-axis labels -->
+      <g class="y-axis-labels">
+        <text x="25" y="145" class="axis-label" text-anchor="end" dominant-baseline="middle">0</text>
+        <text x="25" y="115" class="axis-label" text-anchor="end" dominant-baseline="middle">30</text>
+        <text x="25" y="85" class="axis-label" text-anchor="end" dominant-baseline="middle">50</text>
+        <text x="25" y="55" class="axis-label" text-anchor="end" dominant-baseline="middle">70</text>
+        <text x="25" y="25" class="axis-label" text-anchor="end" dominant-baseline="middle">90</text>
+      </g>
+      
+      <!-- Data lines -->
+      <g class="data-lines">
+        <path
+          *ngFor="let series of chartData"
+          [attr.d]="getPathData(series, 320, 180)"
+          [attr.stroke]="series.color"
+          [attr.stroke-width]="2"
+          fill="none"
+          class="line-path"
+        />
+        
+        <!-- Data points -->
+        <g *ngFor="let series of chartData; let seriesIndex = index">
+          <circle
+            *ngFor="let point of series.data; let pointIndex = index"
+            [attr.cx]="getPointX(pointIndex, series.data.length, 320)"
+            [attr.cy]="getPointY(point.value, 180)"
+            [attr.r]="3"
+            [attr.fill]="series.color"
+            class="data-point"
+          />
+        </g>
+        
+        <!-- Last point values -->
+        <text
+          *ngFor="let series of chartData"
+          [attr.x]="getPointX(series.data.length - 1, series.data.length, 320) + 5"
+          [attr.y]="getPointY(series.data[series.data.length - 1].value, 180) - 5"
+          [attr.fill]="series.color"
+          class="value-label"
+          dominant-baseline="middle"
+        >
+          {{ series.data[series.data.length - 1].value }}
+        </text>
+      </g>
+      
+      <!-- X-axis labels -->
+      <g class="x-axis-labels">
+        <text
+          *ngFor="let month of chartData[0].data; let i = index"
+          [attr.x]="getPointX(i, chartData[0].data.length, 320)"
+          y="155"
+          class="axis-label month-label"
+          text-anchor="middle"
+          dominant-baseline="middle"
+        >
+          {{ month.month.substring(0, 3) }}
+        </text>
+      </g>
+    </svg>
+  </div>
+</div>

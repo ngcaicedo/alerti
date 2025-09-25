@@ -1,0 +1,30 @@
+<div class="reminder-card">
+  <!-- Contenido del recordatorio -->
+  <div class="reminder-content">
+    <div class="medication-info">
+      <h3 class="medication-name">{{ reminder.medicationName }} {{ reminder.dosage }}</h3>
+      <p class="medication-form">{{ reminder.form }}</p>
+    </div>
+    
+    <div class="dose-info">
+      <p class="next-dose">Próxima {{ reminder.nextDose }}</p>
+      <p class="frequency">{{ reminder.frequency }}</p>
+    </div>
+    
+    <div class="progress-info">
+      <p class="dose-progress">{{ reminder.progress }}</p>
+    </div>
+    
+    <div class="doses-section">
+      <div class="doses-info">
+        <p class="doses-taken">{{ reminder.dosesTaken }}</p>
+        <p class="doses-total">{{ reminder.dosesTotal }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Icono de eliminar -->
+  <button class="delete-button" (click)="onDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

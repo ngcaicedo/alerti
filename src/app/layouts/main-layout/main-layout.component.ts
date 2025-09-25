@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { CustomNavRailComponent } from '../../components/custom-nav-rail/custom-nav-rail.component';
 import { CustomCardHeaderComponent } from '../../components/custom-card-header/custom-card-header.component';
 import { ChangePasswordComponent } from '../../pages/change-password/change-password.component';
+import { HomeComponent } from '../../pages/home/home.component';
+import { InventoryComponent } from '../../pages/inventory/inventory.component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [CommonModule, CustomNavRailComponent, CustomCardHeaderComponent, ChangePasswordComponent],
+  imports: [CommonModule, CustomNavRailComponent, CustomCardHeaderComponent, ChangePasswordComponent, HomeComponent, InventoryComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
@@ -43,6 +45,16 @@ export class MainLayoutComponent {
   }
 
   onNavigateToHome(): void {
+    this.selectedNavItem = 'inicio';
+    this.navItemClick.emit('inicio');
+  }
+
+  onNavigateToInventory(): void {
+    this.selectedNavItem = 'inventario';
+    this.navItemClick.emit('inventario');
+  }
+
+  onNavigateToHomeFromInventory(): void {
     this.selectedNavItem = 'inicio';
     this.navItemClick.emit('inicio');
   }

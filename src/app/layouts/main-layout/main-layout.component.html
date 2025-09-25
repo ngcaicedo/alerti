@@ -19,6 +19,16 @@
     [showBackgroundPattern]="showBackgroundPattern">
     
     <div [ngSwitch]="selectedNavItem">
+      <app-home 
+        *ngSwitchCase="'inicio'"
+        (navigateToInventory)="onNavigateToInventory()">
+      </app-home>
+      
+      <app-inventory 
+        *ngSwitchCase="'inventario'"
+        (navigateToHome)="onNavigateToHomeFromInventory()">
+      </app-inventory>
+      
       <app-change-password 
         *ngSwitchCase="'perfil'" 
         (navigateToHome)="onNavigateToHome()">

@@ -1,0 +1,70 @@
+<div class="inventory-content">
+  <div class="inventory-container">
+    <!-- Header con título y botón -->
+    <div class="inventory-header">
+      <h1 class="page-title">Tus Medicamentos</h1>
+      <div class="add-medication-section">
+        <button class="add-button" (click)="onAddMedication()">
+          + Añadir
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabla vacía -->
+    <div class="medications-table">
+      <div class="table-container">
+        <table class="medications-table-content">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Fecha de vencimiento</th>
+              <th>Cantidad</th>
+              <th>Unidad</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Fila con datos de ejemplo -->
+            <tr class="data-row">
+              <td>Acetaminofén</td>
+              <td>31/12/2025</td>
+              <td>12</td>
+              <td>Pastillas</td>
+              <td>
+                <mat-icon class="edit-icon">edit</mat-icon>
+              </td>
+            </tr>
+            
+            <!-- Fila de edición (aparece al hacer clic en Añadir) -->
+            <tr class="edit-row" *ngIf="showAddRow">
+              <td>
+                <input matInput type="text" placeholder="Nombre del medicamento" class="table-input">
+              </td>
+              <td>
+                <input matInput type="text" placeholder="Fecha de vencimiento" class="table-input">
+              </td>
+              <td>
+                <input matInput type="text" placeholder="Cantidad" class="table-input">
+              </td>
+              <td>
+                <input matInput type="text" placeholder="Unidad" class="table-input">
+              </td>
+              <td>
+                <mat-checkbox class="table-checkbox"></mat-checkbox>
+              </td>
+            </tr>
+            
+            <!-- Fila vacía para dar perspectiva de tabla vacía -->
+            <tr class="empty-row">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

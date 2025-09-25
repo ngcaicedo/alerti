@@ -1,0 +1,174 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/fonts' as fonts;
+
+.reminder-card {
+  background: colors.$m3-sys-light-primary-container;
+  border-radius: 12px;
+  padding: 16px;
+  width: 282px;
+  height: 156px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: colors.$elevation-3;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    box-shadow: colors.$elevation-4;
+    transform: translateY(-2px);
+  }
+}
+
+.reminder-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.medication-info {
+  margin-bottom: 4px;
+}
+
+.medication-name {
+  @include fonts.apply-typography(fonts.$m3-title-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0 0 2px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.medication-form {
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.dose-info {
+  margin-bottom: 4px;
+}
+
+.next-dose {
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0 0 2px 0;
+  font-size: 14px;
+}
+
+.frequency {
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dose-progress {
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.doses-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.doses-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doses-taken {
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.doses-total {
+  @include fonts.apply-typography(fonts.$m3-body-large);
+  color: colors.$m3-sys-light-on-primary-container;
+  margin: 0;
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+.delete-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: rgba(colors.$m3-sys-light-on-primary-container, 0.1);
+  }
+
+  mat-icon {
+    color: colors.$m3-sys-light-on-primary-container;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+  @media (max-width: 768px) {
+  .reminder-card {
+    width: 260px;
+    height: 140px;
+    padding: 14px;
+  }
+
+  .medication-name {
+    font-size: 15px;
+  }
+
+  .medication-form,
+  .next-dose,
+  .frequency,
+  .dose-progress,
+  .doses-taken,
+  .doses-total {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reminder-card {
+    width: 240px;
+    height: 120px;
+    padding: 12px;
+  }
+
+  .medication-name {
+    font-size: 14px;
+  }
+
+  .medication-form,
+  .next-dose,
+  .frequency,
+  .dose-progress,
+  .doses-taken,
+  .doses-total {
+    font-size: 12px;
+  }
+}
