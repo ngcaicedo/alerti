@@ -1,59 +1,162 @@
-# Alerti
+# Alerti - Sistema de Recordatorios de Medicamentos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Alerti es una aplicación web desarrollada en Angular 19 que permite a los usuarios gestionar y recibir recordatorios para la toma de sus medicamentos. La aplicación facilita el seguimiento de tratamientos médicos, inventario de medicamentos y visualización de progreso mediante gráficos intuitivos.
 
-## Development server
+## 📋 Descripción del Proyecto
 
-To start a local development server, run:
+Esta aplicación está diseñada para ayudar a las personas a mantener un control efectivo de sus medicamentos, ofreciendo:
+
+- **Sistema de autenticación**: Registro e inicio de sesión de usuarios
+- **Panel de inicio**: Vista general de medicamentos y próximas dosis
+- **Recordatorios inteligentes**: Notificaciones para toma de medicamentos
+- **Gestión de inventario**: Control de stock de medicamentos
+- **Visualización de datos**: Gráficos de adherencia y progreso
+- **Interfaz intuitiva**: Diseño moderno y responsive
+
+## 🏗️ Arquitectura del Proyecto
+
+### Estructura de Directorios
+
+```
+src/
+├── app/
+│   ├── components/          # Componentes reutilizables
+│   │   ├── custom-button/
+│   │   ├── custom-card-header/
+│   │   ├── custom-dialog/
+│   │   ├── custom-listbox/
+│   │   ├── custom-nav-rail/
+│   │   ├── custom-text-field/
+│   │   ├── medication-chart/
+│   │   ├── medication-line-chart/
+│   │   └── reminder-card/
+│   ├── layouts/             # Layouts principales
+│   │   └── main-layout/
+│   ├── pages/               # Páginas de la aplicación
+│   │   ├── change-password/
+│   │   ├── home/
+│   │   ├── inventory/
+│   │   ├── login/
+│   │   └── signup/
+│   └── styles/              # Estilos globales y variables
+├── assets/                  # Recursos estáticos
+│   ├── icons/              # Iconos SVG
+│   └── images/             # Imágenes
+└── styles/                 # Hojas de estilo principales
+```
+
+### Tecnologías Utilizadas
+
+- **Frontend**: Angular 19.2.0
+- **UI Framework**: Angular Material 19.2.19 + Bootstrap 5.3.8
+- **Estilos**: SCSS
+- **Testing**: Jasmine + Karma
+- **Build Tool**: Angular CLI 19.2.1
+
+## 🚀 Instrucciones para Revisión y Ejecución
+
+### Prerrequisitos
+
+Antes de ejecutar el proyecto, asegúrate de tener instalado:
+
+- **Node.js** (versión 18.x o superior)
+- **npm** (incluido con Node.js)
+- **Angular CLI** (se puede instalar globalmente con `npm install -g @angular/cli`)
+
+### Instalación
+
+1. **Clonar el repositorio** (si aplica):
+   ```bash
+   git clone <repository-url>
+   cd alerti
+   ```
+
+2. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
+
+### Ejecución para Desarrollo
+
+Para iniciar el servidor de desarrollo:
 
 ```bash
+npm start
+# o alternativamente
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación estará disponible en: **http://localhost:4200/**
 
-## Code scaffolding
+El servidor se recargará automáticamente cuando modifiques archivos del código fuente.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Ejecución para Revisión
 
-```bash
-ng generate component component-name
-```
+Para una revisión completa del proyecto, recomendamos:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. **Servidor de desarrollo**:
+   ```bash
+   ng serve --open
+   ```
+   Esto abrirá automáticamente el navegador en `http://localhost:4200/`
 
-```bash
-ng generate --help
-```
+2. **Build de producción** (para verificar la compilación):
+   ```bash
+   ng build --configuration production
+   ```
+   Los archivos compilados se generarán en `dist/alerti/`
 
-## Building
+### Navegación en la Aplicación
 
-To build the project run:
+1. **Página de Login**: `/login` (página inicial)
+   - Cualquier combinación de usuario/contraseña permite el acceso
+   
+2. **Registro**: `/signup`
+   - Formulario de registro de nuevos usuarios
+   
+3. **Dashboard Principal**: `/dashboard` o `/home`
+   - Vista principal con recordatorios de medicamentos
+   - Gráficos de adherencia
+   - Navegación a inventario
 
+4. **Gestión de Inventario**: Accesible desde el dashboard
+
+5. **Cambio de contraseña**: Accesible desde el dashboard
+
+### Funcionalidades Principales para Revisar
+
+- **Autenticación**: Flujo completo de login/registro
+- **Componentes personalizados**: Botones, campos de texto, diálogos
+- **Visualización de datos**: Gráficos de medicamentos y progreso
+- **Responsive Design**: Adaptabilidad a diferentes tamaños de pantalla
+- **Navegación**: Sistema de navegación con rail lateral
+
+
+### Build para verificación:
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📱 Características de UX/UI
 
-## Running unit tests
+- **Material Design**: Implementación de principios de Material Design
+- **Responsive**: Adaptable a dispositivos móviles y desktop
+- **Accesibilidad**: Componentes accesibles según estándares web
+- **Consistencia visual**: Paleta de colores y tipografías unificadas
+- **Interacciones intuitivas**: Feedback visual claro para las acciones del usuario
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🎯 Objetivo del Proyecto
 
-```bash
-ng test
-```
+Este proyecto forma parte del curso de UX en la Universidad de los Andes, demostrando:
 
-## Running end-to-end tests
+- Aplicación de principios de diseño centrado en el usuario
+- Implementación de interfaces intuitivas y accesibles
+- Desarrollo de flujos de usuario efectivos
+- Integración de componentes de UI consistentes
+- Prototipado funcional con tecnologías modernas
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Versión**: 0.0.0  
+**Angular CLI**: 19.2.1  
+**Angular**: 19.2.0
